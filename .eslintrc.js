@@ -5,6 +5,7 @@ module.exports = {
   parser: 'babel-eslint',
   plugins: [
     'jest',
+    'react'
   ],
   env: {
     'browser': true,
