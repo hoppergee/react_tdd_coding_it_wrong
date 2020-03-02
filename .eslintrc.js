@@ -2,6 +2,9 @@ module.exports = {
   extends: [
     'codingitwrong',
   ],
+  rules: {
+    indent: ["error", 2]
+  },
   parser: 'babel-eslint',
   plugins: [
     'cypress',
@@ -12,5 +15,5 @@ module.exports = {
     'browser': true,
     'jest/globals': true,
     'cypress/globals': true
-  }
+  },
 };
