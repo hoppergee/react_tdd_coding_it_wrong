@@ -6,6 +6,9 @@
   "repository": "git@github.com:wokenqingtian/react_tdd_coding_it_wrong",
   "author": "Hopper <jx4554@gmail.com>",
   "license": "Apache-2.0",
+  "scripts": {
+    "start": "parcel index.html"
+  },
   "devDependencies": {
     "parcel-bundler": "^1.12.4"
   }
