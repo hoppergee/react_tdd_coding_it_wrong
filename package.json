@@ -8,6 +8,7 @@
   "license": "Apache-2.0",
   "scripts": {
     "start": "parcel index.html",
+    "lint": "eslint src/**/*.js test/**/*.js",
     "unit": "jest test/**/*.spec.js",
     "e2e": "cypress open"
   },
@@ -16,10 +17,13 @@
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/preset-react": "^7.8.3",
     "babel-core": "^7.0.0-0",
+    "babel-eslint": "^10.1.0",
     "babel-jest": "^25.1.0",
     "cypress": "^4.1.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
+    "eslint": "^6.8.0",
+    "eslint-config-codingitwrong": "^0.1.4",
     "jest": "^25.1.0",
     "parcel-bundler": "^1.12.4"
   },
