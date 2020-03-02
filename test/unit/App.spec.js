@@ -3,8 +3,8 @@ import { mount } from 'enzyme';
 import App from '../../src/App';
 
 describe('App', () => {
-  it('renders hello world', () => {
+  it('renders hello viewers', () => {
     const wrapper = mount(<App />);
-    expect(wrapper.find('.hello').text()).toContain('Hello, world!');
+    expect(wrapper.find('.hello').text()).toContain('Hello, viewers!');
   });
 });
