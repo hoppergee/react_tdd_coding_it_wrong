@@ -7,7 +7,7 @@ describe('add a restaurant', () => {
     cy.get('[data-test="addRestaurantButton"]')
       .click();
     
-    cy.get(['data-test="newRestaurantName"'])
+    cy.get('[data-test="newRestaurantName"]')
       .type(restaurantName);
     
     cy.get('[data-test="saveNewRestaurantButton"]')
