@@ -28,11 +28,18 @@ export default class RestaurantListPage extends Component {
     }));
   }
 
+  renderNewRestaurantForm() {
+    if (this.state.showNewRestaurantForm) {
+      return(
+        <NewRestaurantForm
+          onSave={this.handleAddRestaurant}
+        />
+      );
+    }
+  }
+
   render() {
-    const {
-      restaurantNames,
-      showNewRestaurantForm
-    } = this.state
+    const { restaurantNames } = this.state
     return (
       <div>
         <Row>
@@ -44,15 +51,7 @@ export default class RestaurantListPage extends Component {
           </Button>
         </Row>
         <Row>
-          {
-            showNewRestaurantForm
-              ? (
-                <NewRestaurantForm
-                  onSave={this.handleAddRestaurant}
-                />
-              )
-              : null
-          }
+          {this.renderNewRestaurantForm()}
         </Row>
         <Row>
           <RestaurantList restaurantNames={restaurantNames} />
