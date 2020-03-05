@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   Collection,
-  CollectionItem
+  CollectionItem,
 } from 'react-materialize';
 
 const RestaurantList = ({ restaurantNames }) => (
@@ -11,7 +11,7 @@ const RestaurantList = ({ restaurantNames }) => (
 );
 
 const RestaurantItems = ({ restaurantNames }) => (
-  restaurantNames.length == 0
+  restaurantNames.length === 0
     ? <NoRestaurantItems />
     : <SomeRestaurantItems restaurantNames={restaurantNames} />
 );

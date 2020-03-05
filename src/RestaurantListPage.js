@@ -9,10 +9,9 @@ import NewRestaurantForm from './NewRestaurantForm';
 import RestaurantList from './RestaurantList';
 
 export default class RestaurantListPage extends Component {
-
   state = {
     restaurantNames: [],
-    isModalOpen: false
+    isModalOpen: false,
   }
 
   handleAddRestaurant = (newRestaurantName) => {
@@ -27,7 +26,7 @@ export default class RestaurantListPage extends Component {
   }
 
   render() {
-    const { restaurantNames } = this.state
+    const { restaurantNames } = this.state;
     return (
       <div>
         <Modal

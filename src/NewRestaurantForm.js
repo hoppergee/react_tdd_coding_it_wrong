@@ -13,14 +13,14 @@ export default class NewRestaurantForm extends Component {
   }
 
   handleSave = () => {
-    const { inputText } = this.state
-    const { onSave } = this.props
+    const { inputText } = this.state;
+    const { onSave } = this.props;
 
-    onSave(inputText)
+    onSave(inputText);
   }
 
   render() {
-    const { inputText } = this.state
+    const { inputText } = this.state;
     return (
       <Row>
         <TextInput
