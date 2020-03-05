@@ -30,6 +30,7 @@ export default class RestaurantListPage extends Component {
     return (
       <div>
         <Modal
+          data-test="addRestaurantModal"
           open={this.state.isModalOpen}
           trigger={
             <Button data-test="addRestaurantButton">Add Restaurant</Button>
