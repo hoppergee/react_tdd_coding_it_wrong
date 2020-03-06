@@ -41,13 +41,13 @@ export default class NewRestaurantForm extends Component {
           value={values.restaurantName}
           error={errors.restaurantName}
           onChange={handleChange}
-          data-test="newRestaurantName"
+          data-testid="newRestaurantName"
         />
       </Row>
       <Row>
         <Button
           type="button"
-          data-test="cancelAddRestaurantButton"
+          data-testid="cancelAddRestaurantButton"
           onClick={this.handleCancel({ resetForm })}
         >
           Cancel
@@ -55,7 +55,7 @@ export default class NewRestaurantForm extends Component {
         <Button
           type="submit"
           s={12}
-          data-test="saveNewRestaurantButton"
+          data-testid="saveNewRestaurantButton"
         >
           Save
         </Button>

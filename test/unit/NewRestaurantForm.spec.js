@@ -1,31 +1,29 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render, wait, fireEvent, cleanup } from '@testing-library/react';
 import NewRestaurantForm from '../../src/NewRestaurantForm';
 
 describe('NewRestaurantForm', () => {
   describe('clicking the save button', () => {
     let saveHandler;
-    let wrapper;
+    let getByTestId;
 
-    beforeEach((done) => {
+    beforeEach(() => {
       saveHandler = jest.fn();
 
-      wrapper = mount(<NewRestaurantForm onSave={saveHandler} />);
+      ({ getByTestId } = render(<NewRestaurantForm onSave={saveHandler} />));
 
-      wrapper
-        .find('input[data-test="newRestaurantName"]')
-        .simulate('change', {
+      fireEvent.change(
+        getByTestId('newRestaurantName'),
+        {
           target: {
             id: 'restaurantName',
-            value: 'Sushi Place'
-          }
-        });
+            value: 'Sushi Place',
+          },
+        }
+      );
 
-      const result = wrapper
-        .find('form')
-        .simulate('submit');
-
-      setTimeout(done, 0);
+      fireEvent.click(getByTestId('saveNewRestaurantButton'));
+      return wait();
     });
 
     it('calls the onSave handler', () => {
@@ -33,11 +31,7 @@ describe('NewRestaurantForm', () => {
     });
 
     it('clears the text field', () => {
-      wrapper.update();
-      expect(wrapper
-        .find('input[data-test="newRestaurantName"]')
-        .props().value,
-      ).toEqual('');
+      expect(getByTestId('newRestaurantName').value).toEqual('');
     });
   });
 });
