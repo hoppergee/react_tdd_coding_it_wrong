@@ -16,15 +16,21 @@ export default class NewRestaurantForm extends Component {
     return errors;
   }
 
-  handleSave = (values, { resetForm }) => {
+  handleSave = (values, { setSubmitting, resetForm }) => {
     const { restaurantName } = values;
     const { onSave } = this.props;
 
     onSave(restaurantName);
+    setSubmitting(false);
     resetForm();
   }
 
-  renderForm = ({ values, errors, handleChange, handleSubmit }) => (
+  handleCancel = ({ resetForm }) => () => {
+    resetForm();
+    this.props.onCancel();
+  }
+
+  renderForm = ({ values, errors, handleChange, handleSubmit, resetForm }) => (
     <form onSubmit={handleSubmit}>
       <Row>
         <TextInput
@@ -39,6 +45,13 @@ export default class NewRestaurantForm extends Component {
         />
       </Row>
       <Row>
+        <Button
+          type="button"
+          data-test="cancelAddRestaurantButton"
+          onClick={this.handleCancel({ resetForm })}
+        >
+          Cancel
+        </Button>
         <Button
           type="submit"
           s={12}
