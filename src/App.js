@@ -3,13 +3,14 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
 } from "react-router-dom";
-import RestaurantListPage from './RestaurantListPage';
 import {
   Col,
   Row,
 } from 'react-materialize';
+import RestaurantListPage from './RestaurantListPage';
+import RestaurantDetailPage from './RestaurantDetailPage';
 
 export default class App extends React.Component {
   render() {
@@ -18,8 +19,11 @@ export default class App extends React.Component {
         <Row>
           <Col s={12} m={10} l={8} offset="m1 l2">
             <Switch>
-              <Route path="/">
+              <Route exact path="/">
                 <RestaurantListPage />
+              </Route>
+              <Route exact path="/restaurants/:name">
+                <RestaurantDetailPage />
               </Route>
             </Switch>
           </Col>
