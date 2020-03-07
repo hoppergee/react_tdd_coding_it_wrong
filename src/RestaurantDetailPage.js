@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 import {
   Link,
+  withRouter,
 } from 'react-router-dom';
 import {
   Button,
@@ -17,14 +19,21 @@ class RestaurantDetailPage extends Component {
     isModalOpen: false,
   }
 
-  handleAddDish = (newDishName) => {
-    this.props.addDish(newDishName);
+  handleAddDish = (dishName) => {
+    const restaurantName = this.props.match.params.name;
+    this.props.addDish({
+      restaurantName,
+      dishName,
+    });
 
     this.setState({ isModalOpen: false });
   }
 
   render() {
-    const { dishes } = this.props;
+    const { dishes, match } = this.props;
+    const restaurantName = match.params.name;
+    const restaurantDishes = dishes[restaurantName] || [];
+
     return (
       <div>
         <Link
@@ -50,7 +59,7 @@ class RestaurantDetailPage extends Component {
           />
         </Modal>
         <Row>
-          <DishList dishNames={dishes} />
+          <DishList dishNames={restaurantDishes} />
         </Row>
       </div>
     );
@@ -67,4 +76,7 @@ const mapDispatchToProps = {
   addDish,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(RestaurantDetailPage);
+export default compose(
+  withRouter,
+  connect(mapStateToProps, mapDispatchToProps)
+)(RestaurantDetailPage);
