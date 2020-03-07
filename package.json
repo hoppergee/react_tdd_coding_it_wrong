@@ -9,7 +9,7 @@
   "scripts": {
     "start": "parcel index.html",
     "lint": "eslint cypress/integration/**/*.js src/**/*.js test/**/*.js",
-    "unit": "jest test/**/*.spec.js",
+    "unit": "jest test",
     "e2e": "cypress open"
   },
   "devDependencies": {
@@ -37,7 +37,10 @@
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-materialize": "^3.5.9",
-    "react-router-dom": "^5.1.2"
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.1.2",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8"
   },
   "jest": {
     "setupFilesAfterEnv": [
