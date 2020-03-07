@@ -4,10 +4,9 @@ import {
   TextInput,
   Row,
 } from 'react-materialize';
-import { Formik } from 'formik'
+import { Formik } from 'formik';
 
 export default class NewRestaurantForm extends Component {
-
   validate = (values) => {
     const errors = {};
     if (values.restaurantName === '') {
@@ -71,7 +70,7 @@ export default class NewRestaurantForm extends Component {
         onSubmit={this.handleSave}
       >
         {this.renderForm}
-      </Formik> 
+      </Formik>
     );
   }
 }

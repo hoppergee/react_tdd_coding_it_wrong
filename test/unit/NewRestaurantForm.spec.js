@@ -19,7 +19,7 @@ describe('NewRestaurantForm', () => {
             id: 'restaurantName',
             value: 'Sushi Place',
           },
-        }
+        },
       );
 
       fireEvent.click(getByTestId('saveNewRestaurantButton'));
