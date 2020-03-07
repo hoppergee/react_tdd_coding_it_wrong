@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import {
+  Link,
+} from 'react-router-dom';
+import {
   Button,
   Modal,
   Row,
@@ -28,6 +31,12 @@ export default class RestaurantDetailPage extends Component {
     const { dishNames } = this.state;
     return (
       <div>
+        <Link
+          to="/"
+          data-testid="backButton"
+        >
+          Back
+        </Link>
         <Modal
           open={this.state.isModalOpen}
           header="New Dish"
