@@ -14,10 +14,13 @@ export const addRestaurant = (name) => (dispatch) => {
 
   dispatch({
     type: ADD_RESTAURANT,
-    restaurant
-  })
+    restaurant,
+  });
 
-  return Promise.resolve();
+  return api.post(
+    '/restaurants',
+    restaurant,
+  );
 };
 
 export const loadRestaurants = () => (dispatch) => {

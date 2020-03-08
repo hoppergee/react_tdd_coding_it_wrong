@@ -61,6 +61,13 @@ describe('restaurant actions', () => {
       return addRestaurant(name)(dispatch);
     });
 
+    it('sends the new restaurant to the server', () => {
+      expect(api.post).toHaveBeenCalledWith(
+        '/restaurants',
+        restaurant,
+      )
+    });
+
     it('stores the new restaurant in the state', () => {
       expect(dispatch).toHaveBeenCalledWith({
         type: ADD_RESTAURANT,
