@@ -3,7 +3,7 @@ describe('add a restaurant', () => {
     const initialRestaurantName = 'Spaghetti Place';
     const restaurantName = "Sushi Place";
 
-    setupInitialRestaurant(initialRestaurantName);
+    setupInitialRestaurant(initialRestaurantName, restaurantName);
 
     cy.visit('http://localhost:1234');
 
@@ -15,7 +15,7 @@ describe('add a restaurant', () => {
     modalAllowsAddingRestaurant(restaurantName);
   });
 
-  function setupInitialRestaurant(restaurantName) {
+  function setupInitialRestaurant(restaurantName, addedRestaurantName) {
     cy.server();
     cy.route({
       method: 'GET',
@@ -31,6 +31,20 @@ describe('add a restaurant', () => {
           },
         ],
       },
+    });
+
+    cy.route({
+      method: 'POST',
+      url: '/restaurants',
+      response: {
+        data: {
+          type: 'restaurants',
+          id: '2',
+          attributes: {
+            name: addedRestaurantName,
+          },
+        },
+      }
     });
   }
 
