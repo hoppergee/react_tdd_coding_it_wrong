@@ -5,22 +5,25 @@ export const STORE_RESTAURANTS = 'STORE_RESTAURANTS';
 export const ADD_RESTAURANTS = 'ADD_RESTAURANTS';
 
 export const addRestaurant = (name) => (dispatch) => {
-  const restaurant = {
+  const partialRestaurant = {
     type: 'restaurants',
     attributes: {
       name,
     }
   };
 
-  dispatch({
-    type: ADD_RESTAURANT,
-    restaurant,
-  });
-
   return api.post(
     '/restaurants',
-    { data: restaurant },
-  );
+    { data: partialRestaurant },
+  ).then(responseObject => {
+    const responseBody = responseObject.data;
+    const restaurant = responseBody.data;
+
+    dispatch({
+      type: ADD_RESTAURANT,
+      restaurant,
+    });
+  });
 };
 
 export const loadRestaurants = () => (dispatch) => {
