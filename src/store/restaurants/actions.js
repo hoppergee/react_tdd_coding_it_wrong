@@ -2,8 +2,9 @@ import api from '../api';
 
 export const ADD_RESTAURANT = 'ADD_RESTAURANT';
 export const STORE_RESTAURANTS = 'STORE_RESTAURANTS';
+export const ADD_RESTAURANTS = 'ADD_RESTAURANTS';
 
-export const addRestaurant = (name) => {
+export const addRestaurant = (name) => (dispatch) => {
   const restaurant = {
     type: 'restaurants',
     attributes: {
@@ -11,10 +12,12 @@ export const addRestaurant = (name) => {
     }
   };
 
-  return {
+  dispatch({
     type: ADD_RESTAURANT,
-    restaurant,
-  };
+    restaurant
+  })
+
+  return Promise.resolve();
 };
 
 export const loadRestaurants = () => (dispatch) => {
