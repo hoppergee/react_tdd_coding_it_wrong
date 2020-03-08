@@ -26,7 +26,7 @@ describe('add a restaurant', () => {
             type: 'restaurants',
             id: '1',
             attributes: {
-              name: restaurantName
+              name: restaurantName,
             },
           },
         ],
@@ -44,12 +44,12 @@ describe('add a restaurant', () => {
             name: addedRestaurantName,
           },
         },
-      }
+      },
     });
   }
 
   function restaurantsFromServerDisplayAtStart(restaurantName) {
-    cy.contains(restaurantName)
+    cy.contains(restaurantName);
   }
 
   function modalNotShownAtTheStart() {
