@@ -46,24 +46,26 @@ describe('restaurant actions', () => {
   });
 
   describe('addRestaurant', () => {
+    const name = 'Sushi Place';
+    const restaurant = {
+      type: 'restaurants',
+      attributes: {
+        name,
+      },
+    };
+    let dispatch;
+
+    beforeEach(() => {
+      dispatch = jest.fn();
+
+      return addRestaurant(name)(dispatch);
+    });
+
     it('stores the new restaurant in the state', () => {
-      const name = 'Sushi Place';
-      const restaurant = {
-        type: 'restaurants',
-        attributes: {
-          name,
-        },
-      };
-
-      const dispatch = jest.fn();
-
-      return addRestaurant(name)(dispatch)
-        .then(() => {
-          expect(dispatch).toHaveBeenCalledWith({
-            type: ADD_RESTAURANT,
-            restaurant
-          });
-        });
+      expect(dispatch).toHaveBeenCalledWith({
+        type: ADD_RESTAURANT,
+        restaurant
+      });
     });
   });
 });
