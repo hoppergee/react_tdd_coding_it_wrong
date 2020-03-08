@@ -8,11 +8,18 @@ import {
 } from 'react-materialize';
 import NewRestaurantForm from './NewRestaurantForm';
 import RestaurantList from './RestaurantList';
-import { addRestaurant } from './store/restaurants/actions'
+import {
+  loadRestaurants,
+  addRestaurant,
+} from './store/restaurants/actions'
 
 class RestaurantListPage extends Component {
   state = {
     isModalOpen: false,
+  }
+
+  componentDidMount() {
+    this.props.loadRestaurants();
   }
 
   handleAddRestaurant = (newRestaurantName) => {
@@ -43,7 +50,7 @@ class RestaurantListPage extends Component {
           />
         </Modal>
         <Row>
-          <RestaurantList restaurantNames={restaurants} />
+          <RestaurantList restaurants={restaurants} />
         </Row>
       </div>
     );
@@ -57,6 +64,7 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
+  loadRestaurants,
   addRestaurant,
 }
 
