@@ -4,9 +4,16 @@ export const ADD_RESTAURANT = 'ADD_RESTAURANT';
 export const STORE_RESTAURANTS = 'STORE_RESTAURANTS';
 
 export const addRestaurant = (name) => {
+  const restaurant = {
+    type: 'restaurants',
+    attributes: {
+      name,
+    }
+  };
+
   return {
     type: ADD_RESTAURANT,
-    name,
+    restaurant,
   };
 };
 
